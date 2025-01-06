@@ -41,7 +41,7 @@ for i, col in enumerate(features):
 plt.tight_layout()
 plt.show()
 
-# Preprocess the dat'a
+# Preprocess the data
 df.replace({'male': 0, 'female': 1}, inplace=True)
 features = df.drop(['User_ID', 'Calories'], axis=1)
 target = df['Calories'].values
@@ -72,7 +72,7 @@ joblib.dump(best_model, "best_model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 
 # Streamlit Application
-st.title("Calorie Track")
+st.title("Weight Loss with burnt calorie predictor ML")
 
 # Load the saved model and scaler
 best_model = joblib.load("best_model.pkl")
