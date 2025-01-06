@@ -17,6 +17,10 @@ warnings.filterwarnings('ignore')
 # Load the dataset
 df = pd.read_csv('CalorieTrack/calories_combined.csv')
 
+#converting string to binary
+df.replace({"male": 0, "female": 1}, inplace=True)
+features = df.drop(["User_ID", "Calories"], axis=1)
+target = df["Calories"].values
 
 sb.scatterplot(x='Height', y='Weight', data=df)
 plt.show()
