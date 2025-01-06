@@ -15,7 +15,7 @@ import streamlit as st
 warnings.filterwarnings('ignore')
 
 # Load the dataset
-df = pd.read_csv('calories_combined.csv')
+df = pd.read_csv('CalorieTrack/calories_combined.csv')
 
 
 sb.scatterplot(x='Height', y='Weight', data=df)
