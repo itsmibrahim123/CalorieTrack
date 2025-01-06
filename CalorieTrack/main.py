@@ -72,7 +72,7 @@ joblib.dump(best_model, "best_model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 
 # Streamlit Application
-st.title("Weight Monitoring Calculator with calories burnt predictor Machine learning ")
+st.title("Calorie Track")
 
 # Load the saved model and scaler
 best_model = joblib.load("best_model.pkl")
