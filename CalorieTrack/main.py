@@ -144,11 +144,3 @@ if st.button("Calculate"):
         st.write(f"- **Suggested daily calorie intake (surplus)**: {daily_calorie_intake:.2f} kcal")
     st.write(f"- **Estimated weeks to achieve the goal**: {weeks_needed:.1f}")
     
-    # Plot weight change graph
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot(weeks, weight_change, marker="o", linestyle="-", color="blue")
-    ax.set_title("Weight Change Over Time")
-    ax.set_xlabel("Weeks")
-    ax.set_ylabel("Weight (kg)")
-    ax.grid(True)
-    st.pyplot(fig)
