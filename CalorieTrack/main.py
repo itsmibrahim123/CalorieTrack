@@ -161,4 +161,4 @@ if st.button("Calculate"):
     ax.set_xlabel("Weeks")
     ax.set_ylabel("Weight (kg)")
     ax.grid(True)
-    st.pyplot(fig
+    st.pyplot(fig)
