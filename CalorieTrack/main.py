@@ -8,8 +8,8 @@ import streamlit as st
 st.title("Weight Management with Burnt Calorie Predictor ML")
 
 # Load the saved model and scaler
-best_model = joblib.load("/CalorieTrack/best_model.pkl")
-scaler = joblib.load("/CalorieTrack/scaler.pkl")
+best_model = joblib.load("CalorieTrack/best_model.pkl")
+scaler = joblib.load("CalorieTrack/scaler.pkl")
 
 def predict_calories_burned(age, height, weight, exercise_level, gender, heart_rate=80):
     """Predict daily calories burned."""
