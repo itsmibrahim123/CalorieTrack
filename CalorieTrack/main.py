@@ -137,6 +137,14 @@ if st.button("Calculate"):
         current_weight, target_weight, weight_change_per_week, daily_calories_burned
     )
 
+    # Generate weekly weight data for plotting
+    weeks = np.arange(0, weeks_needed + 1)  # Week numbers
+    if change_type == "deficit":
+        weight_change = current_weight - (weeks * weight_change_per_week)
+    else:  # Surplus
+        weight_change = current_weight + (weeks * weight_change_per_week)
+    weight_change = np.clip(weight_change, target_weight, current_weight) if target_weight < current_weight else np.clip(weight_change, current_weight, target_weight)
+    
     # Display results
     st.subheader(f"To reach your goal weight of {target_weight} kg:")
     st.write(f"- **Daily calories burned**: {daily_calories_burned:.2f} kcal")
@@ -145,3 +153,12 @@ if st.button("Calculate"):
     else:
         st.write(f"- **Suggested daily calorie intake (surplus)**: {daily_calorie_intake:.2f} kcal")
     st.write(f"- **Estimated weeks to achieve the goal**: {weeks_needed:.1f}")
+    
+    # Plot weight change graph
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(weeks, weight_change, marker="o", linestyle="-", color="blue")
+    ax.set_title("Weight Change Over Time")
+    ax.set_xlabel("Weeks")
+    ax.set_ylabel("Weight (kg)")
+    ax.grid(True)
+    st.pyplot(fig
