@@ -14,7 +14,7 @@ scaler = joblib.load("CalorieTrack/scaler.pkl")
 def predict_calories_burned(age, height, weight, exercise_level, gender, heart_rate=80):
     """Predict daily calories burned."""
     # Combine features into a single array in the order used during training
-    features = np.array([[age, height, weight, exercise_level, gender, heart_rate]])
+    features = np.array([age, height, weight, exercise_level, gender, heart_rate]).reshape(1, -1)  # Ensure correct shape
     features = scaler.transform(features)  # Scale the features
     
     return best_model.predict(features)[0]
